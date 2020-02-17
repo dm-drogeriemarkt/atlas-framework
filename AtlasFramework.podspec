@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.author             = {
   	"Engel, Stefan" => "stefan.engel@dm.de"
   }
-  s.source       = { :git => "git@github.com:dm-drogeriemarkt/atlas-framework.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/dm-drogeriemarkt/atlas-framework.git", :tag => "#{s.version}" }
   s.source_files  = "Atlas/Atlas/**/*.{h,m,swift}"
   s.public_header_files = "Atlas/Atlas/**/*.h"
   s.swift_version = '4.2'
