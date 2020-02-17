@@ -1,0 +1,20 @@
+disabled_rules: # rule identifiers to exclude from running
+  - trailing_whitespace
+  - vertical_whitespace
+  - line_length
+  - statement_position
+
+identifier_name:
+  max_length:
+    warning: 60
+    error: 80
+  min_length:
+    warning: 3
+    error: 2
+file_length:
+  warning: 500
+  error: 1000
+
+excluded:
+  - Atlas/AtlasTests
+  - Carthage
