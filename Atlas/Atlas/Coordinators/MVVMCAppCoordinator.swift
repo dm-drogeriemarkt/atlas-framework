@@ -39,8 +39,6 @@ public class MVVMCAppCoordinator: NSObject {
 
             rootViewControllers.append(navigationController)
             modules.append(module)
-
-            factory.didSetupModule?(navigationController, tabBar, coordinator)
         }
 
         tabBar.setViewControllers(rootViewControllers, animated: false)
