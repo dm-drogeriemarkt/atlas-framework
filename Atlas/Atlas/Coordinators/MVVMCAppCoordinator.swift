@@ -56,6 +56,17 @@ public class MVVMCAppCoordinator: NSObject {
         navController.view.backgroundColor = UIColor.white
         return navController
     }
+    
+    public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
+        tabBar.selectedIndex = selectedTab
+        let module = modules[selectedTab]
+        module.navigationController.popToRootViewController(animated: false)
+        let coordinator = module.coordinator
+            
+        for request in chain {
+            coordinator.request(navigation: request, withData: [:])
+        }
+    }
 }
 
 // MARK: - UITabBarControllerDelegate
