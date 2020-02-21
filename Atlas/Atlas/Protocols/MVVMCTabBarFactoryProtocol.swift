@@ -6,7 +6,6 @@ public protocol MVVMCTabBarFactoryProtocol: MVVMCFactoryProtocol {
     var unselectedTabBarIconImage: UIImage? { get }
     var tabBarTitle: String? { get }
     var prefersLargeTitles: Bool { get }
-    var didSetupModule: ((UINavigationController, UITabBarController, MVVMCViewDelegate) -> Void)? { get }
 }
 
 // MARK: - Default values
