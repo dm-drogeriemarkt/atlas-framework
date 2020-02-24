@@ -61,10 +61,11 @@ public class MVVMCAppCoordinator: NSObject {
         tabBar.selectedIndex = selectedTab
         let module = modules[selectedTab]
         module.navigationController.popToRootViewController(animated: false)
-        let coordinator = module.coordinator
+        var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
             
         for request in chain {
-            coordinator.request(navigation: request, withData: [:])
+            coordinator?.request(navigation: request, withData: [:])
+            coordinator = coordinator?.targetCoordinator
         }
     }
 }
