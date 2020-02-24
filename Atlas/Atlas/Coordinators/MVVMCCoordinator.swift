@@ -52,7 +52,7 @@ extension MVVMCCoordinator {
     func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?, animated: Bool) {
         switch request {
             case .dismiss: coordinatorDelegate?.childCoordinatorRequestsDismissal(self, transitionType: factory.transitionType, animated: true)
-        case .request(let target): navigateTo(target, animated: animated)
+            case .request(let target): navigateTo(target, animated: animated)
         }
     }
     
