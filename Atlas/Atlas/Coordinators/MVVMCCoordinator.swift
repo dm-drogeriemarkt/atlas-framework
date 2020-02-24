@@ -46,20 +46,24 @@ extension MVVMCCoordinator {
 // MARK: - MVVMCViewModelDelegate
 extension MVVMCCoordinator {
     func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?) {
+        self.request(navigation: request, withData: data, animated: true)
+    }
+    
+    func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?, animated: Bool) {
         switch request {
             case .dismiss: coordinatorDelegate?.childCoordinatorRequestsDismissal(self, transitionType: factory.transitionType, animated: true)
-            case .request(let target): navigateTo(target)
+        case .request(let target): navigateTo(target, animated: animated)
         }
     }
     
-    func navigateTo(_ target: MVVMCNavigationTarget) {
+    func navigateTo(_ target: MVVMCNavigationTarget, animated: Bool) {
         guard let targetFactory = factory.target(forIdentifier: target) else {
             return
         }
 
         targetCoordinator = MVVMCCoordinator(model: model, navigationController: navigationController, factory: targetFactory)
         targetCoordinator?.coordinatorDelegate = self
-        targetCoordinator?.start()
+        targetCoordinator?.start(skipAnimation: !animated)
     }
 }
 
