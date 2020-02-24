@@ -58,8 +58,9 @@ public class MVVMCAppCoordinator: NSObject {
     }
     
     public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
-        tabBar.selectedIndex = selectedTab
         let module = modules[selectedTab]
+        module.navigationController.dismiss(animated: false, completion: nil)
+        tabBar.selectedIndex = selectedTab
         module.navigationController.popToRootViewController(animated: false)
         var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
             
