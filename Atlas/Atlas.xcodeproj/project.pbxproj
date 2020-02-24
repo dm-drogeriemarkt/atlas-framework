@@ -46,7 +46,6 @@
 		2C477E9E23CE096F00F51EB4 /* YellowFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C477E8323CE096F00F51EB4 /* YellowFactory.swift */; };
 		2C477EA023CE096F00F51EB4 /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C477E8623CE096F00F51EB4 /* DemoModel.swift */; };
 		2C477EA123CE096F00F51EB4 /* NavigationTargets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C477E8723CE096F00F51EB4 /* NavigationTargets.swift */; };
-		2C477EA423CE09B600F51EB4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C477EA223CE09B500F51EB4 /* Preview Assets.xcassets */; };
 		2C477EA623CE0B9F00F51EB4 /* DemoModelObserverProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C477EA523CE0B9F00F51EB4 /* DemoModelObserverProtocol.swift */; };
 		2C7383F32140E1B400FBCFAE /* MVVMCModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7383F22140E1B400FBCFAE /* MVVMCModule.swift */; };
 		2CCB99E71F04EFA800C95527 /* MVVMCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCB99E61F04EFA800C95527 /* MVVMCCoordinator.swift */; };
@@ -148,7 +147,6 @@
 		2C477E8323CE096F00F51EB4 /* YellowFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowFactory.swift; sourceTree = "<group>"; };
 		2C477E8623CE096F00F51EB4 /* DemoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
 		2C477E8723CE096F00F51EB4 /* NavigationTargets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTargets.swift; sourceTree = "<group>"; };
-		2C477EA223CE09B500F51EB4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C477EA523CE0B9F00F51EB4 /* DemoModelObserverProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModelObserverProtocol.swift; sourceTree = "<group>"; };
 		2C7383F22140E1B400FBCFAE /* MVVMCModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMCModule.swift; sourceTree = "<group>"; };
 		2CCB99E61F04EFA800C95527 /* MVVMCCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMCCoordinator.swift; sourceTree = "<group>"; };
@@ -222,8 +220,7 @@
 		2C477E3623CE088C00F51EB4 /* AtlasDemo */ = {
 			isa = PBXGroup;
 			children = (
-				2C477EA223CE09B500F51EB4 /* Preview Assets.xcassets */,
-				2C477EA323CE09B500F51EB4 /* Preview Content */,
+				2C477E5D23CE096F00F51EB4 /* ColorViewModelProtocol.swift */,
 				2C477E8523CE096F00F51EB4 /* Model */,
 				2C477E5E23CE096F00F51EB4 /* Modules */,
 				2C477E8723CE096F00F51EB4 /* NavigationTargets.swift */,
@@ -398,13 +395,6 @@
 				2C477EA523CE0B9F00F51EB4 /* DemoModelObserverProtocol.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		2C477EA323CE09B500F51EB4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		2CCB99E51F04EF9600C95527 /* Coordinators */ = {
@@ -704,7 +694,6 @@
 				2C477E9123CE096F00F51EB4 /* BlueView.xib in Resources */,
 				2C477E8D23CE096F00F51EB4 /* GreenView.xib in Resources */,
 				2C477E4423CE088F00F51EB4 /* LaunchScreen.storyboard in Resources */,
-				2C477EA423CE09B600F51EB4 /* Preview Assets.xcassets in Resources */,
 				2C477E9623CE096F00F51EB4 /* RedView.xib in Resources */,
 				2C477E9C23CE096F00F51EB4 /* YellowView.xib in Resources */,
 				2C477E3E23CE088F00F51EB4 /* Assets.xcassets in Resources */,
@@ -858,7 +847,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AtlasDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = FWM745VH37;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -882,7 +870,6 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"AtlasDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = FWM745VH37;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

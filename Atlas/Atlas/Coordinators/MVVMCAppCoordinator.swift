@@ -39,8 +39,6 @@ public class MVVMCAppCoordinator: NSObject {
 
             rootViewControllers.append(navigationController)
             modules.append(module)
-
-            factory.didSetupModule?(navigationController, tabBar, coordinator)
         }
 
         tabBar.setViewControllers(rootViewControllers, animated: false)
@@ -57,6 +55,19 @@ public class MVVMCAppCoordinator: NSObject {
         
         navController.view.backgroundColor = UIColor.white
         return navController
+    }
+    
+    public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
+        let module = modules[selectedTab]
+        module.navigationController.dismiss(animated: false, completion: nil)
+        tabBar.selectedIndex = selectedTab
+        module.navigationController.popToRootViewController(animated: false)
+        var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
+            
+        for request in chain {
+            coordinator?.request(navigation: request, withData: [:])
+            coordinator = coordinator?.targetCoordinator
+        }
     }
 }
 
