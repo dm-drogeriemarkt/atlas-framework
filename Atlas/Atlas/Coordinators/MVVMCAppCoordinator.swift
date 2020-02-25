@@ -65,7 +65,7 @@ public class MVVMCAppCoordinator: NSObject {
         var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
             
         for request in chain {
-            coordinator?.request(navigation: request, withData: [:])
+            coordinator?.request(navigation: request, withData: [:], animated: false)
             coordinator = coordinator?.targetCoordinator
         }
     }
