@@ -157,42 +157,6 @@ class MVVMCAppCoordinatorTests: QuickSpec {
                 }
             }
 
-            context("initialized with 2 factories") {
-                context("calling start") {
-                    context("calling start()") {
-                        var didSetupFactory1: Bool = false
-                        var didSetupFactory2: Bool = false
-
-                        beforeEach {
-                            window = UIWindow()
-
-                            let feature1Factory = Feature1Factory()
-                            feature1Factory.didSetupModule = {_, _, _ in
-                                didSetupFactory1 = true
-                            }
-                            let feature2Factory = Feature2Factory()
-                            feature2Factory.didSetupModule = {_, _, _ in
-                                didSetupFactory2 = true
-                            }
-                            sut = MVVMCAppCoordinator(model: ModelMock(), window: window!, factories: [feature1Factory, feature2Factory])
-                            sut!.start()
-
-                            rootViewController = window!.rootViewController as? UITabBarController
-                        }
-
-                        afterEach {
-                            sut = nil
-                            rootViewController = nil
-                        }
-
-                        it("calls didSetupModule when a module is setup") {
-                            expect(didSetupFactory1).to(beTrue())
-                            expect(didSetupFactory2).to(beTrue())
-                        }
-                    }
-                }
-            }
-            
             context("initialized with 3 factories") {
                 context("calling start") {
                     context("calling start()") {

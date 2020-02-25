@@ -2,6 +2,7 @@ import UIKit
 @testable import Atlas
 
 class MVVMCCoordinatorMock: MVVMCCoordinatorProtocol {
+    var targetCoordinator: MVVMCCoordinatorProtocol?
     var coordinatorDelegate: MVVMCChildCoordinatorDelegate?
     var didCallCoordinatorRequestsDismissal = false
     var didCallViewModelRequestsWithData = false
@@ -20,6 +21,13 @@ class MVVMCCoordinatorMock: MVVMCCoordinatorProtocol {
     }
     
     func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?) {
+        didCallViewModelRequestsWithData = true
+        if request == .dismiss {
+            didRequestDismissal = true
+        }
+    }
+
+    func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?, animated: Bool) {
         didCallViewModelRequestsWithData = true
         if request == .dismiss {
             didRequestDismissal = true
