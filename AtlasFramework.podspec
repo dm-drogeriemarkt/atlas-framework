@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AtlasFramework"
-  s.version      = "1.2.0"
+  s.version      = "1.3.0"
   s.summary      = "Atlas is a framework that helps you structure your iOS app using the MVVM-C architecture pattern."
   s.description  = <<-DESC
   Atlas is a framework that helps you structure your iOS app using the MVVM-C architecture pattern.
