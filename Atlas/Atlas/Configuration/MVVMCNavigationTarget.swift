@@ -1,3 +1,1 @@
-public protocol MVVMCNavigationTarget {
-    func equals(obj: MVVMCNavigationTarget) -> Bool
-}
+public protocol MVVMCNavigationTarget {}
