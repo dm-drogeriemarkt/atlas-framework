@@ -22,14 +22,14 @@ class MVVMCCoordinatorMock: MVVMCCoordinatorProtocol {
     
     func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?) {
         didCallViewModelRequestsWithData = true
-        if request == .dismiss {
+        if case .dismiss = request {
             didRequestDismissal = true
         }
     }
 
     func request(navigation request: MVVMCNavigationRequest, withData data: [String : Any]?, animated: Bool) {
         didCallViewModelRequestsWithData = true
-        if request == .dismiss {
+        if case .dismiss = request {
             didRequestDismissal = true
         }
     }

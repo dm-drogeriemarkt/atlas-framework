@@ -9,11 +9,3 @@ public enum MVVMCNavigationRequest {
         }
     }
 }
-
-func == (lhs: MVVMCNavigationRequest, rhs: MVVMCNavigationRequest) -> Bool {
-    switch (lhs, rhs) {
-        case (.dismiss, .dismiss): return true
-        case (.request(let l), .request(let r)): return l.equals(obj:r)
-        default: return false
-    }
-}
