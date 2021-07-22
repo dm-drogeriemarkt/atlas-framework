@@ -6,6 +6,9 @@ public class MVVMCAppCoordinator: NSObject {
     let tabBar: UITabBarController
     var modules: [MVVMCModule]
     
+    private var isStarted = false
+    private var queuedDeepLinks: [([MVVMCNavigationRequest], Int)] = .init()
+    
     required public init(model: MVVMCModelProtocol, window: UIWindow, factories: [MVVMCTabBarFactoryProtocol]) {
         self.model = model
         self.window = window
@@ -23,10 +26,16 @@ public class MVVMCAppCoordinator: NSObject {
     }
     
     public func start() {
+        isStarted = true
         // TODO: Do not start all modules directly at the beginning
         for module in modules {
             module.coordinator.start()
         }
+        triggerQueuedDeepLinks()
+    }
+    
+    private func triggerQueuedDeepLinks() {
+        queuedDeepLinks.forEach { self.deepLink(chain: $0.0, selectedTab: $0.1) }
     }
 
     func setupModules(for factories: [MVVMCTabBarFactoryProtocol]) {
@@ -58,6 +67,10 @@ public class MVVMCAppCoordinator: NSObject {
     }
     
     public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
+        guard isStarted else {
+            queuedDeepLinks.append((chain, selectedTab))
+            return
+        }
         let module = modules[selectedTab]
         module.navigationController.dismiss(animated: false, completion: nil)
         tabBar.selectedIndex = selectedTab
