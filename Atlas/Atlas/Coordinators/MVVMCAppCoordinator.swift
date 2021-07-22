@@ -36,6 +36,7 @@ public class MVVMCAppCoordinator: NSObject {
     
     private func triggerQueuedDeepLinks() {
         queuedDeepLinks.forEach { self.deepLink(chain: $0.0, selectedTab: $0.1) }
+        queuedDeepLinks.removeAll()
     }
 
     func setupModules(for factories: [MVVMCTabBarFactoryProtocol]) {
