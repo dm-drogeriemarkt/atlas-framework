@@ -21,11 +21,10 @@ public class MVVMCAppCoordinator: NSObject {
         
         tabBar.delegate = self
         setupModules(for: factories)
-
-        window.rootViewController = tabBar
     }
     
     public func start() {
+        window.rootViewController = tabBar
         // TODO: Do not start all modules directly at the beginning
         for module in modules {
             module.coordinator.start()
