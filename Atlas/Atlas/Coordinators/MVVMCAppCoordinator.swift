@@ -26,11 +26,11 @@ public class MVVMCAppCoordinator: NSObject {
     }
     
     public func start() {
-        isStarted = true
         // TODO: Do not start all modules directly at the beginning
         for module in modules {
             module.coordinator.start()
         }
+        isStarted = true
         triggerQueuedDeepLinks()
     }
     
