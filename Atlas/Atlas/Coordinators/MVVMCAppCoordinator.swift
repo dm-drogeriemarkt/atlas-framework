@@ -29,13 +29,12 @@ public class MVVMCAppCoordinator: NSObject {
         for module in modules {
             module.coordinator.start()
         }
-        isStarted = true
-        triggerDeferredDeepLink()
-    }
 
-    private func triggerDeferredDeepLink() {
-        guard let deferredDeepLink = deferredDeepLink else { return }
-        self.deepLink(chain: deferredDeepLink.chain, selectedTab: deferredDeepLink.tab)
+        isStarted = true
+
+        if let deferredDeepLink = deferredDeepLink {
+            self.deepLink(chain: deferredDeepLink.chain, selectedTab: deferredDeepLink.tab)
+        }
     }
 
     func setupModules(for factories: [MVVMCTabBarFactoryProtocol]) {
