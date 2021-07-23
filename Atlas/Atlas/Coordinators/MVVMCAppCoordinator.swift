@@ -5,28 +5,37 @@ public class MVVMCAppCoordinator: NSObject {
     let window: UIWindow
     let tabBar: UITabBarController
     var modules: [MVVMCModule]
-    
+
+    private var isStarted = false
+    private var deferredDeepLink: (chain: [MVVMCNavigationRequest], tab: Int)?
+
     required public init(model: MVVMCModelProtocol, window: UIWindow, factories: [MVVMCTabBarFactoryProtocol]) {
         self.model = model
         self.window = window
         self.modules = []
-        
+
         tabBar = UITabBarController()
         tabBar.viewControllers = []
-        
+
         super.init()
-        
+
         tabBar.delegate = self
         setupModules(for: factories)
-
-        window.rootViewController = tabBar
     }
-    
+
     public func start() {
+        window.rootViewController = tabBar
         // TODO: Do not start all modules directly at the beginning
         for module in modules {
             module.coordinator.start()
         }
+        isStarted = true
+        triggerQueuedDeepLinks()
+    }
+
+    private func triggerQueuedDeepLinks() {
+        guard let queuedDeepLink = deferredDeepLink else { return }
+        self.deepLink(chain: queuedDeepLink.chain, selectedTab: queuedDeepLink.tab)
     }
 
     func setupModules(for factories: [MVVMCTabBarFactoryProtocol]) {
@@ -52,18 +61,22 @@ public class MVVMCAppCoordinator: NSObject {
             navController.navigationBar.prefersLargeTitles = prefersLargeTitles
         }
         navController.tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
-        
+
         navController.view.backgroundColor = UIColor.white
         return navController
     }
-    
+
     public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
+        guard isStarted else {
+            deferredDeepLink = (chain, selectedTab)
+            return
+        }
         let module = modules[selectedTab]
         module.navigationController.dismiss(animated: false, completion: nil)
         tabBar.selectedIndex = selectedTab
         module.navigationController.popToRootViewController(animated: false)
         var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
-            
+
         for request in chain {
             coordinator?.request(navigation: request, withData: [:], animated: false)
             coordinator = coordinator?.targetCoordinator
@@ -77,7 +90,7 @@ extension MVVMCAppCoordinator: UITabBarControllerDelegate {
 //        guard let viewController = viewController as? UINavigationController else {
 //            return
 //        }
-        
+
 //        startTab(viewController: viewController)
     }
 }
