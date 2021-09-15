@@ -7,7 +7,7 @@ public class MVVMCAppCoordinator: NSObject {
     var modules: [MVVMCModule]
 
     private var isStarted = false
-    private var deferredDeepLink: (chain: [MVVMCNavigationRequest], tab: Int)?
+    private var deferredDeepLink: (chain: [MVVMCNavigationRequest], tab: Int?, completion: (() -> Void)?)?
 
     required public init(model: MVVMCModelProtocol, window: UIWindow, factories: [MVVMCTabBarFactoryProtocol]) {
         self.model = model
@@ -33,7 +33,7 @@ public class MVVMCAppCoordinator: NSObject {
         isStarted = true
 
         if let deferredDeepLink = deferredDeepLink {
-            self.deepLink(chain: deferredDeepLink.chain, selectedTab: deferredDeepLink.tab)
+            self.deepLink(chain: deferredDeepLink.chain, selectedTab: deferredDeepLink.tab, completion: deferredDeepLink.completion)
         }
     }
 
@@ -65,11 +65,12 @@ public class MVVMCAppCoordinator: NSObject {
         return navController
     }
 
-    public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int) {
+    public func deepLink(chain: [MVVMCNavigationRequest], selectedTab: Int?, completion: (() -> Void)?) {
         guard isStarted else {
-            deferredDeepLink = (chain, selectedTab)
+            deferredDeepLink = (chain, selectedTab, completion)
             return
         }
+        guard let selectedTab = selectedTab else { return }
         let module = modules[selectedTab]
         module.navigationController.dismiss(animated: false, completion: nil)
         tabBar.selectedIndex = selectedTab
@@ -80,6 +81,7 @@ public class MVVMCAppCoordinator: NSObject {
             coordinator?.request(navigation: request, withData: [:], animated: false)
             coordinator = coordinator?.targetCoordinator
         }
+        completion?()
     }
 }
 
