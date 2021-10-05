@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		098B9955270C2D740042117E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 098B9954270C2D740042117E /* Quick */; };
 		098B9958270C2D8C0042117E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 098B9957270C2D8C0042117E /* Nimble */; };
+		098B995A270C2E160042117E /* MVVMCNavigationAppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098B9959270C2E160042117E /* MVVMCNavigationAppCoordinatorTests.swift */; };
 		09EC37B9270B3B4B0078EA9F /* MVVMCNavigationAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EC37B7270B3B4B0078EA9F /* MVVMCNavigationAppCoordinator.swift */; };
 		09EC37BA270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EC37B8270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift */; };
 		2C208D9521FECC3800F086CE /* MVVMCFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C208D9421FECC3800F086CE /* MVVMCFactoryMock.swift */; };
@@ -110,6 +111,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		098B9959270C2E160042117E /* MVVMCNavigationAppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMCNavigationAppCoordinatorTests.swift; sourceTree = "<group>"; };
 		09EC37B7270B3B4B0078EA9F /* MVVMCNavigationAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMCNavigationAppCoordinator.swift; sourceTree = "<group>"; };
 		09EC37B8270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVVMCTabbedAppCoordinator.swift; sourceTree = "<group>"; };
 		09EC37BB270B3C210078EA9F /* Nimble.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Nimble.xcframework; path = ../Carthage/Build/iOS/Nimble.xcframework; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 			children = (
 				2CCB99F31F04F09300C95527 /* MVVMCCoordinatorTests.swift */,
 				2C374C071F176262002F4CD1 /* MVVMCTabbedAppCoordinatorTests.swift */,
+				098B9959270C2E160042117E /* MVVMCNavigationAppCoordinatorTests.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				2C374C081F176262002F4CD1 /* MVVMCTabbedAppCoordinatorTests.swift in Sources */,
 				2CF34BBB1EFBB8EE00BF531B /* ConstraintMatcher.swift in Sources */,
 				2C208D9721FECD5000F086CE /* MockNavigationController.swift in Sources */,
+				098B995A270C2E160042117E /* MVVMCNavigationAppCoordinatorTests.swift in Sources */,
 				2CF34BC51EFBBA4700BF531B /* UIViewController+PreloadView.swift in Sources */,
 				2C208D9E21FEE1B400F086CE /* MVVMCTransitionTypeTests.swift in Sources */,
 				2CCB99F81F04F8C900C95527 /* TestTargets.swift in Sources */,
