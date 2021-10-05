@@ -99,7 +99,7 @@ class MVVMCTabbedAppCoordinatorTests: QuickSpec {
                             
                             rootViewController = window!.rootViewController as? UITabBarController
                             
-                            currentNavigationController = rootViewController?.selectedViewController as! UINavigationController
+                            currentNavigationController = rootViewController?.selectedViewController as? UINavigationController
                         }
                         
                         afterEach {

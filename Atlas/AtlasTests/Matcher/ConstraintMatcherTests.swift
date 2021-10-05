@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import UIKit
 
 func createTestingConstraint(superview: UIView, subview: UIView, edge: NSLayoutAttribute, inset: CGFloat) -> NSLayoutConstraint {
     return NSLayoutConstraint(item: subview, attribute: edge, relatedBy: .equal, toItem: superview, attribute: edge, multiplier: 1.0, constant: inset)

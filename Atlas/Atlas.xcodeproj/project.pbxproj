@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098B9955270C2D740042117E /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 098B9954270C2D740042117E /* Quick */; };
+		098B9958270C2D8C0042117E /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 098B9957270C2D8C0042117E /* Nimble */; };
 		09EC37B9270B3B4B0078EA9F /* MVVMCNavigationAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EC37B7270B3B4B0078EA9F /* MVVMCNavigationAppCoordinator.swift */; };
 		09EC37BA270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EC37B8270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift */; };
-		09EC37C0270B3C840078EA9F /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EC37BF270B3C840078EA9F /* Nimble.framework */; };
-		09EC37C2270B3C920078EA9F /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09EC37C1270B3C920078EA9F /* Quick.framework */; };
 		2C208D9521FECC3800F086CE /* MVVMCFactoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C208D9421FECC3800F086CE /* MVVMCFactoryMock.swift */; };
 		2C208D9721FECD5000F086CE /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C208D9621FECD5000F086CE /* MockNavigationController.swift */; };
 		2C208D9E21FEE1B400F086CE /* MVVMCTransitionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C208D9D21FEE1B400F086CE /* MVVMCTransitionTypeTests.swift */; };
@@ -208,8 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09EC37C2270B3C920078EA9F /* Quick.framework in Frameworks */,
-				09EC37C0270B3C840078EA9F /* Nimble.framework in Frameworks */,
+				098B9958270C2D8C0042117E /* Nimble in Frameworks */,
+				098B9955270C2D740042117E /* Quick in Frameworks */,
 				2CEFC1C61EFBAE8F0013264C /* Atlas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,7 +637,6 @@
 				2CEFC1C11EFBAE8F0013264C /* Sources */,
 				2CEFC1C21EFBAE8F0013264C /* Frameworks */,
 				2CEFC1C31EFBAE8F0013264C /* Resources */,
-				2CF34BB51EFBB56A00BF531B /* Carthage copy files */,
 			);
 			buildRules = (
 			);
@@ -645,6 +644,10 @@
 				2CEFC1C81EFBAE8F0013264C /* PBXTargetDependency */,
 			);
 			name = AtlasTests;
+			packageProductDependencies = (
+				098B9954270C2D740042117E /* Quick */,
+				098B9957270C2D8C0042117E /* Nimble */,
+			);
 			productName = AtlasTests;
 			productReference = 2CEFC1C51EFBAE8F0013264C /* AtlasTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -688,6 +691,10 @@
 				Base,
 			);
 			mainGroup = 2CEFC1B21EFBAE8F0013264C;
+			packageReferences = (
+				098B9953270C2D740042117E /* XCRemoteSwiftPackageReference "Quick" */,
+				098B9956270C2D8C0042117E /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 2CEFC1BD1EFBAE8F0013264C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -729,25 +736,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2CF34BB51EFBB56A00BF531B /* Carthage copy files */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../Carthage/Build/iOS/Quick.xcframework",
-				"$(SRCROOT)/../Carthage/Build/iOS/Nimble.xcframework",
-			);
-			name = "Carthage copy files";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C477E3123CE088C00F51EB4 /* Sources */ = {
@@ -867,7 +855,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AtlasDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.AtlasDemo.AtlasDemo;
@@ -890,7 +881,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = AtlasDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.AtlasDemo.AtlasDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1008,7 +1002,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1029,7 +1024,11 @@
 				INFOPLIST_FILE = Atlas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.Atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1053,7 +1052,11 @@
 				INFOPLIST_FILE = Atlas/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.Atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1071,12 +1074,17 @@
 				DEVELOPMENT_TEAM = FWM745VH37;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = AtlasTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.AtlasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -1088,11 +1096,16 @@
 				DEVELOPMENT_TEAM = FWM745VH37;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../Carthage/Build/iOS/";
 				INFOPLIST_FILE = AtlasTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.dm.AtlasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
@@ -1136,6 +1149,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		098B9953270C2D740042117E /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		098B9956270C2D8C0042117E /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		098B9954270C2D740042117E /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 098B9953270C2D740042117E /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		098B9957270C2D8C0042117E /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 098B9956270C2D8C0042117E /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2CEFC1B31EFBAE8F0013264C /* Project object */;
 }

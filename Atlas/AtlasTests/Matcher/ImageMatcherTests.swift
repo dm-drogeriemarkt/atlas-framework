@@ -1,5 +1,6 @@
 import Quick
 import Nimble
+import UIKit
 
 class ImageMatcherTests: QuickSpec {
     override func spec() {
