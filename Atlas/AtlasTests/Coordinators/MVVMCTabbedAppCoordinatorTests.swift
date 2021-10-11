@@ -3,10 +3,10 @@ import Nimble
 
 @testable import Atlas
 
-class MVVMCAppCoordinatorTests: QuickSpec {
+class MVVMCTabbedAppCoordinatorTests: QuickSpec {
     override func spec() {
-        describe("The MVVMCAppCoordinator") {
-            var sut: MVVMCAppCoordinator?
+        describe("The MVVMCTabbedAppCoordinator") {
+            var sut: MVVMCTabbedAppCoordinator?
             var window: UIWindow?
             var rootViewController: UITabBarController?
             
@@ -19,7 +19,7 @@ class MVVMCAppCoordinatorTests: QuickSpec {
                         window = UIWindow()
                         testFactory1 = Feature1Factory()
                         testFactory2 = Feature2Factory()
-                        sut = MVVMCAppCoordinator(model: ModelMock(), window: window!, factories: [testFactory1, testFactory2])
+                        sut = MVVMCTabbedAppCoordinator(model: ModelMock(), window: window!, factories: [testFactory1, testFactory2])
                         sut!.start()
                     }
                     
@@ -99,7 +99,7 @@ class MVVMCAppCoordinatorTests: QuickSpec {
                             
                             rootViewController = window!.rootViewController as? UITabBarController
                             
-                            currentNavigationController = rootViewController?.selectedViewController as! UINavigationController
+                            currentNavigationController = rootViewController?.selectedViewController as? UINavigationController
                         }
                         
                         afterEach {
@@ -163,7 +163,7 @@ class MVVMCAppCoordinatorTests: QuickSpec {
                         beforeEach {
                             window = UIWindow()
                             
-                            sut = MVVMCAppCoordinator(model: ModelMock(), window: window!, factories: [Feature1Factory(), Feature2Factory(), Feature1Factory()])
+                            sut = MVVMCTabbedAppCoordinator(model: ModelMock(), window: window!, factories: [Feature1Factory(), Feature2Factory(), Feature1Factory()])
                             sut!.start()
                             
                             rootViewController = window!.rootViewController as? UITabBarController

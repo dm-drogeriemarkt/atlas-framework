@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         let model = DemoModel()
-        appCoordinator = MVVMCAppCoordinator(model: model, window: window!, factories: [BlueFactory(), GreenFactory()])
+        appCoordinator = MVVMCTabbedAppCoordinator(model: model, window: window!, factories: [BlueFactory(), GreenFactory()])
         appCoordinator.start()
 
         return true

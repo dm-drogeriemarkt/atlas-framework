@@ -270,7 +270,7 @@ class MVVMCCoordinatorTests: QuickSpec {
                             
                             sut.childCoordinatorRequestsDismissal(sut.targetCoordinator!, transitionType: factory.transitionType, animated: false)
                             
-                            expect(navigation.presentedViewController).toEventually(beNil(), timeout: 2)
+                            expect(navigation.presentedViewController).toEventually(beNil(), timeout: .seconds(2))
                             expect(navigation.topViewController).toEventually(beAnInstanceOf(RedTestViewController.self))
                         }
                     }

@@ -1,7 +1,7 @@
 import UIKit
 
 struct MVVMCModule {
-    let factory: MVVMCTabBarFactoryProtocol
+    let factory: MVVMCFactoryProtocol
     let navigationController: UINavigationController
     let coordinator: MVVMCCoordinatorProtocol
 }
