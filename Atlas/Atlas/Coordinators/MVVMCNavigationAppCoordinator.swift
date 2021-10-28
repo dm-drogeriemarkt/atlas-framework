@@ -68,4 +68,9 @@ public class MVVMCNavigationAppCoordinator: NSObject, MVVMCAppCoordinator {
         }
         completion?()
     }
+    
+    public func display(request: MVVMCNavigationRequest, animated: Bool) {
+        guard let module = modules.first else { return }
+        module.coordinator.request(navigation: request, withData: nil, animated: animated)
+    }
 }

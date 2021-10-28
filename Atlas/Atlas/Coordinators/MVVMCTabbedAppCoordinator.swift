@@ -83,6 +83,12 @@ public class MVVMCTabbedAppCoordinator: NSObject, MVVMCAppCoordinator {
         }
         completion?()
     }
+    
+    public func display(request: MVVMCNavigationRequest, animated: Bool) {
+        guard tabBar.selectedIndex < modules.count, tabBar.selectedIndex != NSNotFound else { return }
+        let currentModule = modules[tabBar.selectedIndex]
+        currentModule.coordinator.request(navigation: request, withData: nil, animated: animated)
+    }
 }
 
 // MARK: - UITabBarControllerDelegate
