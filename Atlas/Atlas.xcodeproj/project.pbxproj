@@ -77,6 +77,7 @@
 		2CF34BC51EFBBA4700BF531B /* UIViewController+PreloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF34BC41EFBBA4700BF531B /* UIViewController+PreloadView.swift */; };
 		2CF34BC81EFBBBF300BF531B /* ModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF34BC71EFBBBF300BF531B /* ModelMock.swift */; };
 		2CF80BAF1F3319E400CA6695 /* TestViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF80BAE1F3319E400CA6695 /* TestViewControllers.swift */; };
+		47BA78212796E1BF000F6B53 /* UIViewController+TopMost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BA78202796E1BF000F6B53 /* UIViewController+TopMost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		2CF34BC41EFBBA4700BF531B /* UIViewController+PreloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PreloadView.swift"; sourceTree = "<group>"; };
 		2CF34BC71EFBBBF300BF531B /* ModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelMock.swift; sourceTree = "<group>"; };
 		2CF80BAE1F3319E400CA6695 /* TestViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewControllers.swift; sourceTree = "<group>"; };
+		47BA78202796E1BF000F6B53 /* UIViewController+TopMost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopMost.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,6 +496,7 @@
 		2CF34B9E1EFBB3C000BF531B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				47BA78202796E1BF000F6B53 /* UIViewController+TopMost.swift */,
 				2CF34B9F1EFBB3C000BF531B /* UIView */,
 			);
 			path = Extensions;
@@ -774,6 +777,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CF34BA31EFBB3F100BF531B /* UIView+Pinable.swift in Sources */,
+				47BA78212796E1BF000F6B53 /* UIViewController+TopMost.swift in Sources */,
 				2CCB99ED1F04F00600C95527 /* MVVMCChildCoordinatorDelegate.swift in Sources */,
 				09EC37BA270B3B4B0078EA9F /* MVVMCTabbedAppCoordinator.swift in Sources */,
 				2CCB99F11F04F04300C95527 /* MVVMCTransitionType.swift in Sources */,
