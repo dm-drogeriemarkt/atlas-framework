@@ -36,7 +36,7 @@ extension MVVMCCoordinator {
     private func display(view: UIViewController, withTransitionType transitionType: MVVMCTransitionType, skipAnimation: Bool) {
         switch transitionType {
             case .modal(let animated):
-                navigationController.present(view, animated: skipAnimation ? false : animated)
+                navigationController.topMostViewController.present(view, animated: skipAnimation ? false : animated)
             case .push(let animated):
                 navigationController.pushViewController(view, animated: skipAnimation ? false : animated)
         }
@@ -85,7 +85,8 @@ extension MVVMCCoordinator {
                 } else {
                     navigationController.viewControllers = []
                 }
-            case .modal(let animated): navigationController.dismiss(animated: skipAnimation ? false : animated, completion: nil)
+            case .modal(let animated):
+                navigationController.topMostViewController.dismiss(animated: skipAnimation ? false : animated, completion: nil)
         }
     }
 }
