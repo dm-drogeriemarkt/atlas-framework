@@ -58,15 +58,16 @@ public class MVVMCNavigationAppCoordinator: NSObject, MVVMCAppCoordinator {
         }
         
         guard let module = modules.first else { return }
-        module.navigationController.dismiss(animated: false, completion: nil)
-        module.navigationController.popToRootViewController(animated: false)
-        var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
-
-        for request in chain {
-            coordinator?.request(navigation: request, withData: [:], animated: false)
-            coordinator = coordinator?.targetCoordinator
-        }
-        completion?()
+        module.navigationController.dismiss(animated: false, completion: {
+            module.navigationController.popToRootViewController(animated: false)
+            var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
+            
+            for request in chain {
+                coordinator?.request(navigation: request, withData: [:], animated: false)
+                coordinator = coordinator?.targetCoordinator
+            }
+            completion?()
+        })
     }
     
     public func display(request: MVVMCNavigationRequest, animated: Bool) {
