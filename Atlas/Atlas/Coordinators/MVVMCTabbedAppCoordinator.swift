@@ -72,16 +72,17 @@ public class MVVMCTabbedAppCoordinator: NSObject, MVVMCAppCoordinator {
         }
         guard let selectedTab = selectedTab else { return }
         let module = modules[selectedTab]
-        module.navigationController.dismiss(animated: false, completion: nil)
-        tabBar.selectedIndex = selectedTab
-        module.navigationController.popToRootViewController(animated: false)
-        var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
-
-        for request in chain {
-            coordinator?.request(navigation: request, withData: [:], animated: false)
-            coordinator = coordinator?.targetCoordinator
-        }
-        completion?()
+        module.navigationController.dismiss(animated: false, completion: {
+            self.tabBar.selectedIndex = selectedTab
+            module.navigationController.popToRootViewController(animated: false)
+            var coordinator: MVVMCCoordinatorProtocol? = module.coordinator
+            
+            for request in chain {
+                coordinator?.request(navigation: request, withData: [:], animated: false)
+                coordinator = coordinator?.targetCoordinator
+            }
+            completion?()
+        })
     }
     
     public func display(request: MVVMCNavigationRequest, animated: Bool) {
