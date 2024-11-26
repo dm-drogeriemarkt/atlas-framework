@@ -38,7 +38,8 @@ extension MVVMCCoordinator {
             case .modal(let animated):
                 navigationController.topMostViewController.present(view, animated: skipAnimation ? false : animated)
             case .push(let animated):
-                navigationController.pushViewController(view, animated: skipAnimation ? false : animated)
+                (navigationController.topMostViewController.navigationController ?? navigationController)
+                    .pushViewController(view, animated: skipAnimation ? false : animated)
         }
     }
 }
