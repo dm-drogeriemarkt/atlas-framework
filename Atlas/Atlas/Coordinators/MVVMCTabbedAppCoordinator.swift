@@ -87,8 +87,15 @@ public class MVVMCTabbedAppCoordinator: NSObject, MVVMCAppCoordinator {
     
     public func display(request: MVVMCNavigationRequest, animated: Bool) {
         guard tabBar.selectedIndex < modules.count, tabBar.selectedIndex != NSNotFound else { return }
+
         let currentModule = modules[tabBar.selectedIndex]
-        currentModule.coordinator.request(navigation: request, withData: nil, animated: animated)
+        var coordinator = currentModule.coordinator
+
+        while let targetCoordinator = coordinator.targetCoordinator {
+            coordinator = targetCoordinator
+        }
+
+        coordinator.request(navigation: request, withData: nil, animated: animated)
     }
 }
 
